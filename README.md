@@ -2,3 +2,7 @@
 
 
 To view a demo of this project, visit https://instachatapp001.herokuapp.com/
+
+#To get this app, run
+
+## git clone 
