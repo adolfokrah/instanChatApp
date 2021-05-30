@@ -23,7 +23,8 @@ interface User{
     status: string;
     socketId: string;
     newMessages: number;
-    blocked: false
+    blocked: false;
+    blacklistedUsers: any;
 }
 const Chat=()=>{
     const { user,logout } = useAuth0();
@@ -51,24 +52,8 @@ const Chat=()=>{
             }else{
                 n_user.blocked = false;
             }
-           
-            if(n_user.blacklistedUsers){
-                
-                    let nIndex = n_user.blacklistedUsers.indexOf(user?.email);
-                    
-                    if(nIndex > -1){
-                        
-                        let myIndex = data.findIndex((data_index:any) => data_index.email === n_user.email);
-                        if(myIndex > -1){
-                            //console.log(data[myIndex]);
-                            data.splice(myIndex,1);
-                        }
-                    }
-           
-            }
         });
-        let userIndex = data.findIndex((n_user:any) => n_user.email === user?.email);
-        data.splice(userIndex,1);
+        data.splice(index,1);
         setUsers(data);
      })
 
@@ -162,7 +147,7 @@ const Chat=()=>{
                       <Box className="users-list">
                          {users.map((contact,index)=>(
                              <div key={index}>
-                              {contact.status === 'online' ? 
+                              {contact.status === 'online' && contact.blacklistedUsers.indexOf(user?.email) < 0 ? 
                               <UserListItem blockUnblockContact={()=>{blockUnblockContact(contact.email)}} blocked={contact.blocked} onClick={()=>{setConversationMtd(index)}} key={index} email={contact.email} photo={contact.picture} status={contact.status} newMessages={contact.newMessages}/>
                               : null}
                              </div>
