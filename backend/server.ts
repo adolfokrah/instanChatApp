@@ -12,7 +12,9 @@ const io = require("socket.io")(server, {
     methods: ["GET", "POST"]
   }
 });
-let client = redis.createClient("redis://:pb32605202600a4264026b0651fe662ea3d69029fba07b06f42a38b916cfc0744@ec2-54-172-142-101.compute-1.amazonaws.com:24159");
+const redis_url = "redis://:pb32605202600a4264026b0651fe662ea3d69029fba07b06f42a38b916cfc0744@ec2-54-172-142-101.compute-1.amazonaws.com:24159";
+
+let client = redis.createClient(redis_url);
 client.on('connect',()=>{
   console.log("connected to redis");
 })
