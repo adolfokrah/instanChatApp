@@ -5,4 +5,12 @@ To view a demo of this project, visit https://instachatapp001.herokuapp.com/
 
 #To get this app, run
 
-## git clone 
+### git clone https://github.com/adolfokrah/instanChatApp.git
+
+### cd backend
+### npm install
+
+download and install redis >> https://redis.io/download
+### npm start
+
+##enjoy
