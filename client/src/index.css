@@ -1,0 +1,10 @@
+body {
+   background-color: #f2f2f2;
+   margin: 0px;
+   padding: 0px;
+}
+.app-container{
+  height: 100vh;
+  display: grid !important;
+  place-items: center !important;
+}
