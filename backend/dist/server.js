@@ -45,6 +45,7 @@ io.on('connection', function (socket) {
                 if (index < 0) {
                     //register new user
                     data.socketId = socket.id;
+                    data.blacklistedUsers = [];
                     users.forEach(function (user) {
                         user.newMessages = 0;
                         if (!user.blacklistedUsers) {

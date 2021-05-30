@@ -45,6 +45,7 @@ io.on('connection', (socket:any) => {
           if(index < 0){
             //register new user
             data.socketId = socket.id;
+            data.blacklistedUsers =[];
             users.forEach((user:any) => {
               user.newMessages = 0;
               if(!user.blacklistedUsers){
